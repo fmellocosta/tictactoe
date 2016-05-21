@@ -24,7 +24,7 @@
   
   <div class="end">
     <h3></h3>
-    <h5><a href="#">Restart</a></h5>
+    <h5><a href="<?=base_url();?>pages/restart">Restart</a></h5>
   </div>
   
 </div>

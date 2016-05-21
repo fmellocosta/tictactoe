@@ -24,7 +24,7 @@
   
   <div class="end">
     <h3></h3>
-    <h5><a href="game">Start now!</a></h5>
+    <h5><a href="<?=base_url();?>pages/start">Start now!</a></h5>
   </div>
   
 </div>

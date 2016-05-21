@@ -21,14 +21,33 @@ class Pages extends CI_Controller {
 		
 	}
 	
-	function game() {
+	function start() {
 		
 		$data = $this->data;
+		
+		$this->load->controller('games');
+		$this->games->start();
+		
 		$this->load->view ( 'templates/header', $data );
 		$this->load->view ( 'pages/game', $data );
+		$this->load->view ( 'templates/includes/footer_games', $data );
 		$this->load->view ( 'templates/footer', $data );
 		
 	}
+	
+	function restart() {
+	
+		$data = $this->data;
+	
+		$this->load->controller('games');
+		$this->games->restart();
+	
+		$this->load->view ( 'templates/header', $data );
+		$this->load->view ( 'pages/game', $data );
+		$this->load->view ( 'templates/includes/footer_games', $data );
+		$this->load->view ( 'templates/footer', $data );
+	
+	}	
 	
 }
 ?>
