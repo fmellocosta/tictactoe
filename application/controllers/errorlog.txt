@@ -1,0 +1,19 @@
+* Hostname localhost was found in DNS cache
+*   Trying ::1...
+* Connected to localhost (::1) port 80 (#0)
+> POST /tictactoe_api/api/games/users/ HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Length: 266
+Expect: 100-continue
+Content-Type: multipart/form-data; boundary=------------------------d740661ff0a6953a
+
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< Date: Sat, 21 May 2016 19:07:31 GMT
+< Server: Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.5.35
+< X-Powered-By: PHP/5.5.35
+< Content-Length: 12
+< Content-Type: text/html; charset=UTF-8
+< 
+* Connection #0 to host localhost left intact
