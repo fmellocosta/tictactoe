@@ -28,22 +28,28 @@ class Games extends CI_Controller {
 					'action' => 'register',				
 					'gameId' => $gameId
 			);
+			
 			$response = Requests::post(api_url(), array(), $postData);
 			
 			if ($response->success) {
 				
 				$sessionData = array(
-					 'sessionId' => $gameId
+						'sessionId' => $gameId,
+						'playerId' => 'PLAYER_1'
 				);
 				
 				$this->session->set_userdata($sessionData);
 			}
 			
-			print_r($this->session->userdata('sessionId'));
+			print_r("You are: " . $this->session->userdata('playerId'));
+			echo "<br/>";
+			print_r("Game url: <a href='" . base_url() . 'pages/join/' . $this->session->userdata('sessionId') . "'>link</a>");
 			
 		} else {
 			
-			print_r($this->session->userdata('sessionId'));
+			print_r("You are: " . $this->session->userdata('playerId'));
+			echo "<br/>";
+			print_r("Game url: <a href='" . base_url() . 'pages/join/' . $this->session->userdata('sessionId') . "'>link</a>");
 			
 		}
 		
@@ -77,6 +83,32 @@ class Games extends CI_Controller {
 			print_r("Nenhum jogo ativo! Clique aqui para iniciar um novo");
 			
 		}
+	}
+	
+	function join() {
+		
+		$this->load->library('session');
+		
+		$gameId = $this->uri->rsegment(3);
+		
+		if (empty($this->session->userdata('sessionId'))) {
+			
+			$sessionData = array(
+					'sessionId' => $gameId,
+					'playerId' => 'PLAYER_2'
+			);
+			
+			$this->session->set_userdata($sessionData);			
+
+		}
+			
+		redirect('/pages/start');
+		
+	}
+	
+	function killall() {
+		$this->load->library('session');
+		$this->session->sess_destroy();
 	}
 	
 	

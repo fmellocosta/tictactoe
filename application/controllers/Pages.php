@@ -47,6 +47,20 @@ class Pages extends CI_Controller {
 		$this->load->view ( 'templates/includes/footer_games', $data );
 		$this->load->view ( 'templates/footer', $data );
 	
+	}
+	
+	function join() {
+	
+		$data = $this->data;
+	
+		$this->load->controller('games');
+		$this->games->join();
+	
+		$this->load->view ( 'templates/header', $data );
+		$this->load->view ( 'pages/game', $data );
+		$this->load->view ( 'templates/includes/footer_games', $data );
+		$this->load->view ( 'templates/footer', $data );
+	
 	}	
 	
 }

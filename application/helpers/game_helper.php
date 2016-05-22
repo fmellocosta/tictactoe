@@ -10,4 +10,19 @@ if(!function_exists('api_url')) {
 		return 'http://localhost/tictactoe_api/api/games/users/';
 	}
 }
+
+if(!function_exists('getGameId')) {
+	function getGameId() {
+		$CI =& get_instance();
+		return $CI->session->userdata('sessionId');
+	}
+}
+
+if(!function_exists('getPlayerId')) {
+	function getPlayerId() {
+		$CI =& get_instance();
+		return $CI->session->userdata('playerId');
+	}
+}
+
 ?>
